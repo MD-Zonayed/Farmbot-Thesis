@@ -717,15 +717,6 @@ If you use this repository in your research, please cite:
   year={2023}
 }
 ```
-
----
-
-# 📄 License
-
-This project is released under the **MIT License**.
-
-See the LICENSE file for more information.
-
 ---
 
 # 🤝 Acknowledgements
