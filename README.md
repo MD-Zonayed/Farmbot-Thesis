@@ -58,6 +58,37 @@ The primary objectives of this research were to:
 
 # ✨ Key Features
 
+## 🎥 Project Demonstration
+
+Watch the complete demonstration of the **Machine Learning-Based IoT-Enabled FarmBot for Smart Farming**, showcasing autonomous seeding, watering, intelligent weeding, soil monitoring, YOLOv8-based tomato ripeness and disease detection, and IoT-enabled remote monitoring.
+
+<p align="center">
+
+<a href="https://youtu.be/VWTlKhXIzMg">
+
+<img src="https://img.youtube.com/vi/VWTlKhXIzMg/maxresdefault.jpg" width="850" alt="FarmBot Demonstration"/>
+
+</a>
+
+</p>
+
+<p align="center">
+
+<b>🎬 Click the image above to watch the complete FarmBot demonstration on YouTube.</b>
+
+</p>
+
+<p align="center">
+
+<a href="https://youtu.be/VWTlKhXIzMg">
+
+<img src="https://img.shields.io/badge/▶%20Watch%20on-YouTube-red?style=for-the-badge&logo=youtube" alt="Watch on YouTube"/>
+
+</a>
+
+</p>
+
+
 ✅ Autonomous CNC-based Farming Robot
 
 ✅ AI-powered Tomato Disease Detection
