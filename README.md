@@ -481,6 +481,8 @@ The proposed Farmbot successfully integrates Artificial Intelligence, Machine Le
 
 The developed prototype demonstrates the feasibility of intelligent autonomous farming by reducing manual intervention while improving monitoring, decision-making, and resource utilization.
 
+Designed and built the CNC-driven agricultural robotic platform from ~1,200 electrical, electronic, and mechanical components, integrating IoT, OpenCV, YOLOv8, and a Streamlit/MATLAB control panel to autonomously handle seeding, watering, weeding, and field monitoring. Across a 10 ft² test bed, it achieved 92.9% precision/93.7% recall/97.6% mAP50 on tomato ripeness and defects detections, and 85% precision/80% recall/90.5% mAP50 on weeds detections, and reduced the use of water to 35%. 
+
 The project serves as a scalable framework for future agricultural robotic systems and highlights the potential of AI-driven automation in sustainable farming.
 
 ---
