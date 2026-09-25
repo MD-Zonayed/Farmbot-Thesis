@@ -18,8 +18,6 @@
 
 <img src="https://img.shields.io/badge/IoT-MQTT%20%7C%20ThingSpeak-orange?style=for-the-badge"/>
 
-<img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge"/>
-
 </p>
 
 ---
