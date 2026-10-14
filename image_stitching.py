@@ -1,62 +1,38 @@
-"""
-Simple panorama stitching for FarmBot image coverage.
-"""
-
-from __future__ import annotations
-
-import argparse
-from pathlib import Path
-
+import streamlit as st
 import cv2
+import matplotlib.pyplot as plt
+from PIL import Image
+import numpy as np
 
+st.title('Image Stitching')
+st.subheader('Please Upload your Image')
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Stitch multiple FarmBot images into a panorama")
-    parser.add_argument(
-        "images",
-        nargs="+",
-        help="Input image paths in the order they should be stitched.",
-    )
-    parser.add_argument(
-        "--show",
-        action="store_true",
-        help="Display the result in a window.",
-    )
-    parser.add_argument(
-        "--output",
-        default="stitched_panorama.jpg",
-        help="Output panorama filename.",
-    )
-    return parser.parse_args()
+image_paths = ['1.jpg', '2.jpg']
 
+imgs = []
+for i in range(len(image_paths)):
+    imgs.append(cv2.imread(image_paths[i]))
 
-def main() -> None:
-    args = parse_args()
+# Show original images
+cv2.imshow('1', imgs[0])
+cv2.imshow('2', imgs[1])
 
-    image_paths = [Path(p) for p in args.images]
-    imgs = []
-    for p in image_paths:
-        img = cv2.imread(str(p))
-        if img is None:
-            raise FileNotFoundError(f"Could not read image: {p}")
-        imgs.append(cv2.resize(img, (700, 550)))
+# Resize the images
+img1 = cv2.resize(imgs[0], (700, 550))
+img2 = cv2.resize(imgs[1], (700, 550))
 
-    if len(imgs) < 2:
-        raise ValueError("Provide at least 2 images for stitching.")
+stitcher = cv2.Stitcher.create()
+status, stitched_image = stitcher.stitch([img1, img2])
 
-    stitcher = cv2.Stitcher.create()
-    status, stitched_image = stitcher.stitch(imgs)
+if status == cv2.Stitcher_OK:
+    print('Your Panorama is ready!!!')
+    cv2.imshow('Final Result', stitched_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-    if status == cv2.Stitcher_OK:
-        print("Your panorama is ready!!!")
-        cv2.imwrite(args.output, stitched_image)
-        if args.show:
-            cv2.imshow("Final Result", stitched_image)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-    else:
-        raise RuntimeError(f"Stitching failed with OpenCV status code: {status}")
-
-
-if __name__ == "__main__":
-    main()
+    stitched_image_rgb = cv2.cvtColor(stitched_image, cv2.COLOR_BGR2RGB)
+    plt.imshow(stitched_image_rgb)
+    plt.axis('on')
+    plt.show()
+else:
+    print("Stitching ain't successful")
